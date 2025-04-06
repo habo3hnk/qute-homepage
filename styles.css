@@ -1,0 +1,193 @@
+@font-face {
+  font-family: 'JetBrainsMono Nerd Font';
+  src: local('JetBrainsMono Nerd Font Mono Bold'),
+    local('JetBrainsMonoNFMono-Bold'),
+    url('https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@master/patched-fonts/JetBrainsMono/Ligatures/Bold/JetBrainsMonoNerdFontMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+  background: #1a1b26;
+  color: #e0e0e0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookmarks-wrapper {
+  width: 80vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+#bookmark-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bookmark {
+  position: relative;
+  height: auto;
+  border-radius: 8px;
+  background: #24283b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  text-decoration: none;
+
+  padding: 10px;
+}
+
+.bookmark:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-name {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: #e0e0e0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.bookmark:hover .bookmark-initial {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+#gif-container {
+  width: 90vw;
+  height: 40vh;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.spinner {
+  display: none;
+
+  width: max-content;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1em;
+  color: #CBA6F7;
+  filter: drop-shadow(0 0 10px);
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.spinner span {
+  animation: loading6454 1.75s ease infinite;
+}
+
+.spinner span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.spinner span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.spinner span:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.spinner span:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.spinner span:nth-child(6) {
+  animation-delay: 1.25s;
+}
+
+.spinner span:nth-child(7) {
+  animation-delay: 1.5s;
+}
+
+@keyframes loading6454 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+#random-gif {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bookmarks-wrapper, #gif-container {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.bookmarks-wrapper {
+  animation-delay: 0.3s;
+}
+
+#gif-container {
+  animation-delay: 0.6s;
+}
+
+.bookmark {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s ease forwards;
+}

@@ -1,0 +1,10 @@
+export const Config = {
+  PATHS: {
+    QUICKMARKS: 'file:///home/<USERNAME>/.config/qutebrowser/quickmarks',
+  },
+
+  GIPHY: {
+    API_KEY: '<YOUR_GIPHY_API_KEY>',
+    SEARCH_QUERY: '<YOUR_TAG>',
+  },
+};
