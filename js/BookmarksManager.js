@@ -42,16 +42,24 @@ export async function createBookmarkElement(line) {
     bookmark.className = 'bookmark';
     bookmark.href = url;
     bookmark.title = name;
-    bookmark.innerHTML = `
-      <div class="bookmark-logo" 
-            style="display: inline-block; width: 40px; height: 40px; margin:10px; 
-                  background: url(${iconUrl}) center/contain no-repeat;" 
-            role="img" 
-            aria-label="Favicon">
-      </div>
-      <p class="bookmark-name">${name}</p>
-    `;
 
+    const icon = document.createElement('div');
+    icon.className = 'bookmark-logo';
+    Object.assign(icon.style, {
+      display: 'inline-block',
+      width: '40px',
+      height: '40px',
+      margin: '10px',
+      background: `url(${iconUrl}) center/contain no-repeat`
+    });
+    icon.setAttribute('role', 'img');
+    icon.setAttribute('aria-label', 'Favicon');
+
+    const nameElement = document.createElement('p');
+    nameElement.className = 'bookmark-name';
+    nameElement.textContent = name;
+
+    bookmark.append(icon, nameElement);
     return bookmark;
   } catch (error) {
     console.error(`Error creating bookmark for ${url}:`, error);
