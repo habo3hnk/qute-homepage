@@ -1,8 +1,8 @@
-import { GifLoader } from './GifLoader.js';
-import { BookmarksManager } from './BookmarksManager.js';
+import { loadRandomGif } from './GifLoader.js';
+import { loadQuickmarks } from './BookmarksManager.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  GifLoader.loadRandomGif();
-  BookmarksManager.loadQuickmarks();
+  loadRandomGif();
+  loadQuickmarks();
 });

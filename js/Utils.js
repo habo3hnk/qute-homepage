@@ -1,17 +1,14 @@
-export class Utils {
-  static extractDomain(url) {
-    try {
-      const domain = new URL(url).hostname
-        .replace('www.', '')
-        .replace('chat.', '')
-        .replace('web.', '');
-      return domain;
-    } catch {
-      return '';
-    }
+export function extractDomain(url) {
+  try {
+    return new URL(url).hostname
+      .replace('www.', '')
+      .replace('chat.', '')
+      .replace('web.', '');
+  } catch {
+    return '';
   }
+}
 
-  static async getIcon(domain) {
-    return `https://icons.duckduckgo.com/ip3/${domain}.ico`;
-  }
+export function getIcon(domain) {
+  return `https://icons.duckduckgo.com/ip3/${domain}.ico`;
 }
