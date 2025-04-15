@@ -23,9 +23,13 @@ export async function loadRandomGif() {
 }
 
 export async function showLoadingState(spinner, gifElement) {
-  spinner.style.display = 'flex';
-  gifElement.style.display = 'none';
-  gifElement.style.opacity = '0';
+  try {
+    spinner.style.display = 'flex';
+    gifElement.style.display = 'none';
+    gifElement.style.opacity = '0';
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export async function hideLoadingState(spinner) {

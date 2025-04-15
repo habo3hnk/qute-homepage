@@ -18,12 +18,15 @@ export async function loadQuickmarks() {
 
 export async function renderBookmarks(lines) {
   const container = document.getElementById('bookmark-container');
-
-  for (const line of lines) {
-    const bookmark = await createBookmarkElement(line);
-    if (bookmark) {
-      container.appendChild(bookmark);
+  try {
+    for (const line of lines) {
+      const bookmark = await createBookmarkElement(line);
+      if (bookmark) {
+        container.appendChild(bookmark);
+      }
     }
+  } catch (e) {
+    console.log(e);
   }
 }
 
