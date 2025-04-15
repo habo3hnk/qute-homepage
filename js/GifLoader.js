@@ -33,7 +33,11 @@ export async function showLoadingState(spinner, gifElement) {
 }
 
 export async function hideLoadingState(spinner) {
-  spinner.style.display = 'none';
+  try {
+    spinner.style.display = 'none';
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export async function fetchRandomGif() {
